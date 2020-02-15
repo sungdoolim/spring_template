@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+D:\Fourker_s\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+946995863.index
+600300804.index
+1092428069.index
+3403376742.index
+3358484638.index
+3831363004.index
+3271193799.index
+3430102952.index

@@ -1,0 +1,150 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+
+</head>
+<body>
+
+<c:set var = "session" value = "${loginvo}"/>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+	
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+			data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><!-- 크기를 줄였을때 나타나는 버튼 -->
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.jsp">Fourker_s</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- 네비 중간 대부분을 차지함 -->
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.jsp">소개<span class="sr-only"></span></a></li>
+				<li><a href="instructor.jsp">강사진</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+				aria-haspopup="true" aria-expanded="false">강의<span class="caret"></span></a><!-- dropdown 연결이 어떤식인지는 모르겠지만 -->
+					<ul class="dropdown-menu">
+						<li><a href="lecture.jsp?lectureName=C">c언어</a></li>
+						<li><a href="lecture.jsp?lectureName=Java">java</a></li>
+						<li><a href="lecture.jsp?lectureName=Android">안드로이드</a></li>
+					</ul>
+				</li>		
+			</ul>
+					<c:if test="${loginvo.isAdmin==1 }">
+			<form class="navbar-form navbar-left" action="../../gtg/admin/adsearchBoard.do">
+				<div class="form-group">
+				<input type="text" class="form-control" placeholder="입력" name="bcontent"></div>
+				<button type="submit" class="btn btn-default">검색</button>  
+		
+			<<a href="../../gtg/admin/adminHome.do">adminHome</a>
+
+			<input type="submit" value="검색">
+				
+				
+				
+				
+			</form></c:if>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+					aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					<c:choose>
+		<c:when test="${session == null}">
+						<li><a href="../../gtg/login/loginHome.do">로그인</a></li>
+						<li><a href="../../gtg/login/joinHome.do">회원가입</a></li>	
+						
+		</c:when>
+		<c:otherwise>
+		<li><h6><a href="../../gtg/login/loginvalid.do">로그아웃</a></h6></li>
+			
+			<li><h6><a href="../../gtg/login/del.do">회원 탈퇴</a></h6></li>
+			<li><h6><a href="../../gtg/login/mypage.do">mypage</a></h6></li>
+			<li><h6><a href="../../gtg/board/boardHome.do">게시판</a></h6></li>
+			
+						
+		
+		
+		
+					</ul>
+			
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+<h1>title입니다. top보다 상단의 제목을 담당하는 부분입니다.</h1>
+
+
+
+
+
+
+<!-- 
+<c:set var = "session" value = "${loginvo}"/>
+	<c:choose>
+		<c:when test="${session == null}">
+			<div style="float : right;">
+			<button type="submit" class="btn btn-link" onclick="location.href='../../gtg/login/joinHome.do'">회원가입</button>
+			</div>
+			<div style="float : right;">
+			<button type="submit" class="btn btn-link" onclick="location.href='../../gtg/login/loginHome.do'">로그인</button>
+			</div>
+			<br>
+			<br>
+		</c:when>
+		<c:otherwise>
+		
+		
+			<div style="float : right;">
+			<button type="submit" class="btn btn-link" onclick="location.href='../../gtg/login/joinHome.do'">회원가입</button>
+			</div>
+			<div style="float : right;">
+			<button type="submit" class="btn btn-link" onclick="location.href='../../gtg/login/loginHome.do'">로그인</button>
+			</div>
+			<br>
+			<br>
+			</c:otherwise>
+	</c:choose> -->
+	<!-- 
+			<div style="float : right;">
+			<h6>${loginvo.userName}님 안녕하세요.</h6>
+			</div>
+			<div style="float : right;">
+			<h6><a href="../../gtg/login/loginvalid.do">로그아웃</a></h6>
+			</div>
+				<div style="float : right;">
+			<h6><a href="../../gtg/login/del.do">회원 탈퇴</a></h6>
+			<h6><a href="../../gtg/login/mypage.do">mypage</a></h6>
+			<h6><a href="../../gtg/board/boardHome.do">게시판</a></h6>
+			<c:if test="${loginvo.isAdmin==1 }">
+			<h6><a href="../../gtg/admin/adminHome.do">adminHome</a></h6>
+			<form action="../../gtg/admin/adsearchBoard.do">
+			<input type="text" name="bcontent">
+			<input type="submit" value="검색">
+			</form>
+			</c:if>
+			</div>
+		
+			<br>
+			<br>
+		</c:otherwise>
+	</c:choose> -->
+
+</body>
+</html>

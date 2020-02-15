@@ -1,0 +1,3 @@
+#Tomcat publish data
+#Sat Feb 01 10:42:27 KST 2020
+org.eclipse.jst.jee.server\:/binary\:D\:\\Fourker_s\\tools\\apache-maven-3.6.1\\mvnrepository_3.6.1\\org\\springframework\\spring-web\\4.3.4.RELEASE\\spring-web-4.3.4.RELEASE.jar=WEB-INF/lib/spring-web-4.3.4.RELEASE.jar

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fourker_s.gtg.board.dao.BoardDAO">
+
+	<select id="allboard" parameterType="loginVO" resultType="boardVO"><!-- 아이디는 일치시켜줘야함, insert/select 구분 해야하는데... 잘된대/  -->
+	select bid,bname,buid from board
+	</select>
+	<select id="countboard"  resultType="int"><!-- 아이디는 일치시켜줘야함, insert/select 구분 해야하는데... 잘된대/  -->
+	select count(*) from board
+	</select>	
+	<select id="bcontent" parameterType="boardVO" resultType="boardVO"><!-- 아이디는 일치시켜줘야함, insert/select 구분 해야하는데... 잘된대/  -->
+	select bid,bname,buid,bcontent from board where bid=#{bid} and bname=#{bname}
+	</select>
+	
+	<select id="seachboard" parameterType="boardVO" resultType="boardVO">
+	select bid,bname,buid from board where bname like %#{bcontent}% or bcontent like %#{bcontent}%
+	</select>
+	
+	<update id="deleteboard" parameterType="boardVO">
+		delete from board where bid=#{bid} and bname=#{bname}
+	</update>
+	
+	<select id="updateboardname" parameterType="boardVO" resultType="boardVO">
+	update board set bname=#{bname} where bid=#{bid}
+	</select>
+	<select id="updateboardcontent" parameterType="boardVO">
+	update board set bcontent=#{bcontent} where bid=#{bid}
+	</select>
+		<select id="insertcontent" parameterType="boardVO">
+	INSERT INTO BOARD (
+			bid,
+			bname,
+			bpw,
+			buid,
+			bcontent			
+		) VALUES (#{bid},#{bname},#{bpw},#{buid},#{bcontent})
+	
+	</select>
+	
+
+	
+</mapper>

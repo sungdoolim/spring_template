@@ -1,0 +1,140 @@
+package com.fourker_s.gtg.admin.web;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.fourker_s.gtg.admin.service.AdminService;
+import com.fourker_s.gtg.board.service.BoardService;
+import com.fourker_s.gtg.board.vo.BoardVO;
+import com.fourker_s.gtg.cmm.session.SessionManageUtil;
+import com.fourker_s.gtg.login.service.LoginService;
+import com.fourker_s.gtg.login.vo.LoginVO;
+
+
+@Controller
+public class AdminController {
+	Logger LOGGER = LoggerFactory.getLogger(AdminController.class);// .class 할때 이름 일치해야함
+
+
+	
+	@Resource(name="adminService")//쌍따옴표는 앞에 소문자로 바꿔야함
+	AdminService adminService;//저 이름으로 쓸께
+	
+
+	@Resource(name="loginService")
+	LoginService loginService;
+	
+	@RequestMapping(value="/admin/adminHome.do")
+	public String adminHome(Model model, LoginVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+        
+        HttpSession session=request.getSession();
+        vo=(LoginVO)session.getAttribute("loginvo");
+
+        List<LoginVO> login = null;
+        login = loginService.allUser(vo);//select 해온 친구를 login에 넣은 것임 
+        
+		model.addAttribute("all",login);
+		Integer a=loginService.countuser();
+		model.addAttribute("count",a);
+        
+        
+        
+        
+        
+		return "/admin/adminHome";
+    }
+	
+	
+
+	@RequestMapping(value="/admin/adpage.do")//이주소가 오면 밑에 메서드 사용할 것 임
+	public String adpage(Model model, LoginVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+     
+ Integer cnt=Integer.parseInt(request.getParameter("cnt"));
+ double ppcnt=Double.parseDouble(request.getParameter("pcnt"));
+ int a=(int)ppcnt;
+ Integer pcnt=a;
+ System.out.println(pcnt);
+ model.addAttribute("count",cnt);//페이지가 전달됨
+ model.addAttribute("pcount",pcnt);//페이지가 전달됨
+ 
+ List<LoginVO> login = null;
+ login = loginService.allUser(vo);//select 해온 친구를 login에 넣은 것임 
+ 
+	model.addAttribute("all",login);
+ 
+ 
+     
+        
+		return "/admin/adpage";
+    }
+	@RequestMapping(value="/admin/adupdateform.do")//이주소가 오면 밑에 메서드 사용할 것 임
+	public String adupdateform(Model model, LoginVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+     
+String id=request.getParameter("userId");
+ String name=request.getParameter("name");
+ model.addAttribute("id", id);
+ model.addAttribute("name", name);
+     
+        
+		return "/admin/adupdateform";
+    }
+	@RequestMapping(value="/admin/adupdate.do")//이주소가 오면 밑에 메서드 사용할 것 임
+	public String adupdate(Model model, LoginVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+        loginService.update(vo);
+	
+ 
+     
+        
+		return "/admin/adupdate";
+    }
+	
+	
+	@RequestMapping(value="/admin/addel.do")//이주소가 오면 밑에 메서드 사용할 것 임
+	public String addel(Model model, LoginVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+     
+
+            
+        String a=request.getParameter("userId");
+       
+        vo.setUserId(a);
+      
+  loginService.deleteUser(vo);
+        
+     
+        
+		return "/admin/addel";
+    }
+	
+	
+	@RequestMapping(value="/admin/searchBoard.do")//이주소가 오면 밑에 메서드 사용할 것 임
+	public String searchBoard(Model model, LoginVO vo,BoardVO bvo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        LOGGER.debug("호출됨");
+    //    String a=request.getParameter("userId");
+  //      vo.setUserId(a);
+ System.out.println(bvo.getBcontent());
+//  adminService.searchBoard(bvo);
+  
+		return "/admin/addel";
+    }
+	
+	
+	
+	
+}

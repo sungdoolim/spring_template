@@ -1,0 +1,220 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
+<link rel="stylesheet" href="css/customize.css">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+/****** LOGIN MODAL ******/
+.loginmodal-container {
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #4d90fe;
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+} 
+
+.login-help{
+  font-size: 12px;
+}
+
+</style>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+	
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+			data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><!-- 크기를 줄였을때 나타나는 버튼 -->
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.jsp">코딩 부스터</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- 네비 중간 대부분을 차지함 -->
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.jsp">소개<span class="sr-only"></span></a></li>
+				<li><a href="instructor.jsp">강사진</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+				aria-haspopup="true" aria-expanded="false">강의<span class="caret"></span></a><!-- dropdown 연결이 어떤식인지는 모르겠지만 -->
+					<ul class="dropdown-menu">
+						<li><a href="lecture.jsp?lectureName=C">c언어</a></li>
+						<li><a href="lecture.jsp?lectureName=Java">java</a></li>
+						<li><a href="lecture.jsp?lectureName=Android">안드로이드</a></li>
+					</ul>
+				</li>		
+			</ul>
+			<form class="navbar-form navbar-left">
+				<div class="form-group">
+				<input type="text" class="form-control" placeholder="입력"></div>
+				<button type="submit" class="btn btn-default">검색</button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+					aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="loginForm.jsp">로그인</a></li>
+						<li><a href="registerForm.jsp">회원가입</a></li>	
+					</ul>
+			
+				</li>
+			</ul>
+			
+		</div>
+	</div>
+</nav>
+
+
+
+
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="Username">
+					<input type="password" name="pass" placeholder="Password">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+				  </form>
+					
+				  <div class="login-help">
+					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				  </div>
+				</div>
+			</div>
+		  </div>
+
+
+
+
+<footer style="background-color: #000000;color:#ffffff">
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-sm-2" style="text-align: center;"><h5>Copyright &copy; 2020</h5><h5>staris</h5></div>
+			<div class="col-sm-4"><h4>대표자 소개/<h4><p>저는 하마하마 도야지도야지 하마도야지 도야지이ㅣ이ㅣ이이하마아ㅑ아아 ㅏ ㅏㅇㅇ냐오옹옹</p></div>
+			<div class="col-sm-2"><h4 style="text-align:center;">네비게이션</h4>
+				<div class="list-group">
+					<a href="index.jsp" class="list-group-item">소개</a>
+					<a href="instructor.jsp" class="list-group-item">강사진</a>
+					<a href="lecture.jsp" class="list-group-item">강의</a>
+					
+				</div>
+			
+			</div>
+			<div class="col-sm-2"><h4 style="text-align:center;">SNS</h4>
+				<div class="list-group">
+					<a href="#" class="list-group-item">페이스북</a>
+					<a href="#" class="list-group-item">유투브</a>
+					<a href="#" class="list-group-item">인스타</a>
+					
+				</div>
+			</div>
+			<div class="col-sm-2"><h4 style="text-align:center;"><span class="glyphicon glyphicon-ok"></span>&nbsp;by staris</h4></div>
+	</div>
+
+	
+</div>
+</footer>
+
+
+</body>
+</html>

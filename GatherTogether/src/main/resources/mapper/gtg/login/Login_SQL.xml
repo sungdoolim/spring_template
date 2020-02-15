@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fourker_s.gtg.login.dao.LoginDAO">
+	<select id="joinUser" parameterType="loginVO" resultType="loginVO"><!-- 아이디는 일치시켜줘야함, insert/select 구분 해야하는데... 잘된대/  -->
+		INSERT INTO USERS (
+			userId,
+			password,
+			userName,
+			eMail,
+			phoneNum,
+			introduce
+		) VALUES (
+			#{userId},
+			#{password},
+			#{userName},
+			#{eMail},
+			#{phoneNum},
+			#{introduce}
+		)
+	</select>
+	<select id="allUser" parameterType="loginVO" resultType="loginVO">
+	
+	SELECT * FROM USERS
+	</select>
+	
+	<select id="checkUser" parameterType="loginVO" resultType="loginVO">
+		SELECT 
+			userId 
+		FROM 
+			USERS 
+		WHERE 
+			userId = #{userId}
+	</select>
+	
+	<select id="loginUser" parameterType="loginVO" resultType="loginVO">
+		SELECT 
+			*
+		FROM 
+			USERS
+		WHERE 
+			userId = #{userId}
+	</select>
+	<select id="deleteUser" parameterType="loginVO">
+	DELETE FROM USERS WHERE userId=#{userId}
+	</select>
+	<select id="countUser" resultType="int">
+	select count(*) from users
+	</select>
+		<update id="updateUser" parameterType="loginVO">
+	update users set password=#{password}, eMail=#{eMail}, introduce=#{introduce},phoneNum=#{phoneNum},isAdmin=#{isAdmin} where userId=#{userId} 
+	</update>
+	
+</mapper>

@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<c:forEach var="al" items="${all}">
+
+<tr>
+<td>bid : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	${al.bid}</td>
+<td><a href=bdetail.do?bid=${a}&bname=${b} > : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		${al.bname}</a></td>
+<td>bpid :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 						${al.buid}</td>
+
+<td><a href="bdel.do?bid=${a}&bname=${b}">삭제</a></td>
+
+</tr>
+</c:forEach>
+
+</body>
+</html>

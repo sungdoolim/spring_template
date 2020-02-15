@@ -1,0 +1,26 @@
+1579767069595	Copy package
+1579767108239	Copy packages
+1579768126408	Rename type 'BoardController'
+1579768184689	Rename type 'BoardService'
+1579768208527	Copy package
+1579768221268	Rename type 'LoginServiceImpl'
+1579768314665	Copy folder
+1579768320983	Rename resource 'boardHome.jsp'
+1579768458108	Rename type 'BoardDAO'
+1579768525876	Rename type 'BoardVO'
+1579774663021	Copy file
+1579774807750	Delete element
+1579775985587	Rename resource 'all.jsp'
+1579777396233	Copy file
+1579777403910	Rename resource 'bdel.jsp'
+1579781413444	Copy file
+1579781421505	Rename resource 'mypage.jsp'
+1579781592330	Rename resource 'adupdate.jsp'
+1579781936559	Copy file
+1579781941697	Rename resource 'update.jsp'
+1579880554389	Copy file
+1579882636094	Delete element
+1579967305055	Copy folder
+1579968115296	Rename resource 'Board_SQL.xml'
+1579969242170	Copy file
+1579969246183	Rename resource 'searchBoard.jsp'

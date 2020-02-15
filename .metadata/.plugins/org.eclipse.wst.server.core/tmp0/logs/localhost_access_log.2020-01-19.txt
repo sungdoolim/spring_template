@@ -1,0 +1,13 @@
+127.0.0.1 - - [19/Jan/2020:11:19:36 +0900] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:19:41 +0900] "GET /gtg/WEB-INF/classes/com/fourker_s/gtg/board/web/BoardController.java HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:19:42 +0900] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:19:51 +0900] "GET /gtg/ HTTP/1.1" 200 1552
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:20:03 +0900] "GET /gtg/login/loginHome.do HTTP/1.1" 200 2651
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:19 +0900] "POST /gtg/login/loginCheck.do HTTP/1.1" 200 1908
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:21 +0900] "GET /gtg HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:21 +0900] "GET /gtg/ HTTP/1.1" 200 1677
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:23 +0900] "GET /gtg/board/boardHome.do HTTP/1.1" 200 1852
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:24 +0900] "GET /gtg/board/bpage.do?cnt=1&pcnt=3.6 HTTP/1.1" 200 5192
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:32 +0900] "GET /gtg/board/bdetail.do?bid=2&bname=q HTTP/1.1" 200 1716
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:41 +0900] "GET /gtg/board/bpage.do?cnt=2&pcnt=3 HTTP/1.1" 200 5146
+0:0:0:0:0:0:0:1 - - [19/Jan/2020:11:21:44 +0900] "GET /gtg/board/bpage.do?cnt=3&pcnt=3 HTTP/1.1" 200 4034
